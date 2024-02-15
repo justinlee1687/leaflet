@@ -37,7 +37,7 @@
   });
 
   /* Control panel to display map layers */
-  var controlLayers = L.control.layers( null, null, {
+  var controlLayers = L.control.layers( baseMaps, overlayMaps, {
     position: "topright",
     collapsed: false
   }).addTo(map);
@@ -73,6 +73,8 @@
   map.attributionControl.setPrefix(
     'View <a href="https://github.com/HandsOnDataViz/leaflet-map-csv" target="_blank">code on GitHub</a>'
   );
+
+  controlLayers.addOverlay(parks, "Parks");
 
   </script>
 </body>
