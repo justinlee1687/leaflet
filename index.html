@@ -69,7 +69,7 @@
 
       var marker = L.marker([row.Latitude, row.Longitude], {
         opacity: 1
-      }).bindPopup(row.StoreName + '</br> Address:' + row.Address  + '</br> ShopType:' + row.shoptype  + '</br> Phone:' + String(row.phone) + '</br> Opening Hours:' + row.opening_ho );
+      }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
       
       marker.addTo(map);
     }
