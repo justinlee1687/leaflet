@@ -37,7 +37,7 @@
   });
 
   /* Control panel to display map layers */
-  var controlLayers = L.control.layers( null, null, {
+  var controlLayers = L.control.layers( baseMaps, overlayMaps, {
     position: "topright",
     collapsed: false
   }).addTo(map);
@@ -72,10 +72,18 @@
       }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
       
       marker.addTo(map);
+
+      if (row.shoptype == "Convenience stores and gas stations") {
+        var conveniencestores = L.marker([row.Latitude, row.Longitude], {
+        opacity: 1
+      }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
+      }
+
     }
 
+    controlLayers.addOverlay(conveniencestores, "conveniencestores");
   });
-
+  
   map.attributionControl.setPrefix(
     'View <a href="https://github.com/HandsOnDataViz/leaflet-map-csv" target="_blank">code on GitHub</a>'
   );
