@@ -99,7 +99,8 @@
     /* Control panel to display map layers */
     var controlLayers = L.control.layers(null, null, {
       position: "topright",
-      collapsed: false
+      collapsed: false,
+      title: "Store Types:"
     }).addTo(map);
 
     // display Carto basemap tiles with light features and labels
@@ -238,12 +239,12 @@ var otherstoreicon = L.icon({
       var supermarketlistfinal = L.layerGroup(supermarketlist)
       var otherslistfinal = L.layerGroup(otherslist)
       //show as overlay
-      controlLayers.addOverlay(conveniencestoreslistfinal, "<img src='constore.svg' width = 15 /> <span>convenience stores</span>");
-      controlLayers.addOverlay(drugstorelistfinal, "drugstorelist");
-      controlLayers.addOverlay(clubstorelistfinal, "clubstorelist");
-      controlLayers.addOverlay(independentlistfinal, "independent stores");
-      controlLayers.addOverlay(supermarketlistfinal, "supermarket stores");
-      controlLayers.addOverlay(otherslistfinal, "others stores");
+      controlLayers.addOverlay(conveniencestoreslistfinal, "<img src='constore.svg' width = 15 /> <span>Convenience stores and gas stations</span>");
+      controlLayers.addOverlay(drugstorelistfinal, "<img src='drugstore.svg' width = 15 /> <span>Drugstores</span>");
+      controlLayers.addOverlay(clubstorelistfinal, "<img src='wholesalestore.svg' width = 15 /> <span>Mass merchandisers / club stores</span>");
+      controlLayers.addOverlay(independentlistfinal, "<img src='privatestore.svg' width = 15 /> <span>Independent and specialty stores</span>");
+      controlLayers.addOverlay(supermarketlistfinal, "<img src='grocerystore.svg' width = 15 /> <span>Supermarkets and traditional formats</span>");
+      controlLayers.addOverlay(otherslistfinal, "<img src='otherstore.svg' width = 15 /> <span>Others Stores</span>");
 
       //actual show on map
       map.addLayer(conveniencestoreslistfinal);
