@@ -14,8 +14,16 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
 
-  <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
-  <script src="https://unpkg.com/esri-leaflet-vector@4.2.3/dist/esri-leaflet-vector.js" crossorigin=""></script>
+  <!-- Load Leaflet from CDN-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet-src.js"></script>
+
+  <!-- Load Esri Leaflet from CDN -->
+  <script src="https://unpkg.com/esri-leaflet@3"></script>
+
+  <!-- Load Esri Leaflet Renderers -->
+  <!-- This will hook into Esri Leaflet to get renderer info when adding a feature layer -->
+  <script src="https://unpkg.com/esri-leaflet-renderers@3"></script>
 
   <!-- Position the map with Cascading Style Sheet (CSS) -->
   <style>
@@ -68,23 +76,26 @@
       collapsed: false
     }).addTo(map);
 
-    // display Carto basemap tiles with light features and labels
+    /* // display Carto basemap tiles with light features and labels
     var light = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
     }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
-    // controlLayers.addBaseLayer(light, 'Carto Light basemap');
+    // controlLayers.addBaseLayer(light, 'Carto Light basemap'); */
 
     const apiKey = "AAPK95f0bc344de14945b18b5e0de5d6ad3bG2YtG5mSUOtSZhrI9fyQOFBFCxjQXLvtsiQDmlyCCRStmsc4IPXcOjre7Lf7n3GV";
-    L.esri.Vector.vectorBasemapLayer("arcgis/modern-antique", {
+    /* L.esri.Vector.vectorBasemapLayer("arcgis/modern-antique", {
         apikey: apiKey
-      }).addTo(map);
+      }).addTo(map); */
 
+    
+      L.esri.basemapLayer('Streets').addTo(map);
     const heatmap = L.esri
       .featureLayer({
-        url: "https://services1.arcgis.com/DwLTn0u9VBSZvUPe/ArcGIS/rest/services/Servicewalk/FeatureServer?token=f2edyezl3cG-9iBVH0IxEjtDIwauO9ZCz982-5SvsEG1j8ASPoOk5k6Qi3lOOL9o4wqQFSPR-0fX9Mea7N3q5kF2LfpIMGvypCL_rZgfBJRsqHgwgsvsJzqE0kmw6TWN4fFboXvEBzcIyXKI3rolcz5hXTxeNp6DnY3yE_qMVDdAycwxQp--qhIWpRlq7NnLqbwWSz41r56v7KdaqmTcTIf3Y1yw9WjcyBE9O1TJigbBCqauGKQRE04VrP6VD_A58ENrKqyUg0WHLEsneeXhbw../0"
+        url: "https://services1.arcgis.com/DwLTn0u9VBSZvUPe/arcgis/rest/services/Servicewalk/FeatureServer/0",
+        token: apiKey
       })
       .addTo(map);
-      controlLayers.addBaseLayer(heatmap, 'esri');
+
 
     // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
 
@@ -158,7 +169,7 @@
       controlLayers.addOverlay(independentlistfinal, "independent stores");
       controlLayers.addOverlay(supermarketlistfinal, "supermarket stores");
       controlLayers.addOverlay(otherslistfinal, "others stores");
-   
+
       //actual show on map
       map.addLayer(conveniencestoreslistfinal);
       map.addLayer(drugstorelistfinal);
