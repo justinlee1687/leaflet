@@ -25,6 +25,10 @@
   <!-- This will hook into Esri Leaflet to get renderer info when adding a feature layer -->
   <script src="https://unpkg.com/esri-leaflet-renderers@3"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+  <div id="root"></div>
+
   <!-- Position the map with Cascading Style Sheet (CSS) -->
   <style>
     body {
@@ -74,6 +78,24 @@
     .legend i.icon {
       background-size: 18px;
       background-color: rgba(255, 255, 255, 1);
+    }
+
+    .app {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .map {
+      height: 200px;
+      width: 100%;
+      background: rgb(209, 209, 209);
+    }
+
+    .map-title {
+      position: absolute;
+      background: white;
+      bottom: 20px;
     }
   </style>
 
@@ -134,47 +156,47 @@
     var otherslist = []
 
     var drugstoreicon = L.icon({
-    iconUrl: 'drugstore.svg',
+      iconUrl: 'drugstore.svg',
 
-    iconSize:     [15, 15], // size of the icon
-    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
-    popupAnchor:  [7, 7],
-});
-var constoreicon = L.icon({
-    iconUrl: 'constore.svg',
+      iconSize: [15, 15], // size of the icon
+      iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
+      popupAnchor: [7, 7],
+    });
+    var constoreicon = L.icon({
+      iconUrl: 'constore.svg',
 
-    iconSize:     [15, 15], // size of the icon
-    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
-    popupAnchor:  [7, 7],
-});
-var grocerystoreicon = L.icon({
-    iconUrl: 'grocerystore.svg',
+      iconSize: [15, 15], // size of the icon
+      iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
+      popupAnchor: [7, 7],
+    });
+    var grocerystoreicon = L.icon({
+      iconUrl: 'grocerystore.svg',
 
-    iconSize:     [15, 15], // size of the icon
-    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
-    popupAnchor:  [7, 7],
-});
-var wholesalestoreicon = L.icon({
-    iconUrl: 'wholesalestore.svg',
+      iconSize: [15, 15], // size of the icon
+      iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
+      popupAnchor: [7, 7],
+    });
+    var wholesalestoreicon = L.icon({
+      iconUrl: 'wholesalestore.svg',
 
-    iconSize:     [15, 15], // size of the icon
-    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
-    popupAnchor:  [7, 7],
-});
-var privatestoreicon = L.icon({
-    iconUrl: 'privatestore.svg',
+      iconSize: [15, 15], // size of the icon
+      iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
+      popupAnchor: [7, 7],
+    });
+    var privatestoreicon = L.icon({
+      iconUrl: 'privatestore.svg',
 
-    iconSize:     [15, 15], // size of the icon
-    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
-    popupAnchor:  [7, 7],
-});
-var otherstoreicon = L.icon({
-    iconUrl: 'otherstore.svg',
+      iconSize: [15, 15], // size of the icon
+      iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
+      popupAnchor: [7, 7],
+    });
+    var otherstoreicon = L.icon({
+      iconUrl: 'otherstore.svg',
 
-    iconSize:     [15, 15], // size of the icon
-    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
-    popupAnchor:  [7, 7],
-});
+      iconSize: [15, 15], // size of the icon
+      iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
+      popupAnchor: [7, 7],
+    });
 
 
     // Read markers data from data.csv
@@ -292,6 +314,18 @@ var otherstoreicon = L.icon({
     map.attributionControl.setPrefix(
       'View <a href="https://github.com/HandsOnDataViz/leaflet-map-csv" target="_blank">code on GitHub</a>'
     );
+
+    function App() {
+      return (
+        <div className="app">
+          <div className="map" />
+          <h1 className="map-title">Distance to Grocery Store - Group 10</h1>
+        </div>
+      );
+    }
+
+    const rootElement = document.getElementById("root");
+    ReactDOM.render(<App />, rootElement);
 
   </script>
 </body>
