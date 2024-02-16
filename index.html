@@ -93,20 +93,25 @@
       center: [45.41712649528622, -75.6947615027121], // EDIT latitude, longitude to re-center map
       zoom: 14,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
       scrollWheelZoom: true,
-      tap: false
+      tap: false,
+      zoomControl: false
     });
 
-    let textbox   = L.Control.extend({
-        onAdd: function() {
-            
+    let textbox = L.Control.extend({
+      onAdd: function () {
+
         var text = L.DomUtil.create('div');
         text.id = "info_text";
         text.innerHTML = "<h2>" + "Distance to Food Access in Ottawa - Group 10" + "</h2>"
         return text;
-        },  
+      },
 
     });
     new textbox({ position: 'topleft' }).addTo(map);
+
+    L.control.zoom({
+      position: 'bottomright'
+    }).addTo(map);
 
     /* Control panel to display map layers */
     var controlLayers = L.control.layers(null, null, {
@@ -228,7 +233,7 @@
           var independent = L.marker([row.Latitude, row.Longitude], {
             opacity: 1,
             icon: privatestoreicon
-          }).bindPopup('<stong>' + row.StoreName + '</strong></br> <strong> Address: </strong> ' + row.Address + '</br> <strong> ShopType: </strong> ' + row.shoptype + '</br> <strong> Phone: </strong> ' + String(row.phone) + '</br> <strong> Opening Hours: </strong> ' + row.opening_ho);
+          }).bindPopup('<b>' + row.StoreName + '</b> </br> <strong> Address: </strong> ' + row.Address + '</br> <strong> ShopType: </strong> ' + row.shoptype + '</br> <strong> Phone: </strong> ' + String(row.phone) + '</br> <strong> Opening Hours: </strong> ' + row.opening_ho);
           independentlist.push(independent);
         } else if (row.shoptype == "Supermarkets and traditional formats") {
           var supermarket = L.marker([row.Latitude, row.Longitude], {
@@ -304,7 +309,7 @@
       'View <a href="https://github.com/HandsOnDataViz/leaflet-map-csv" target="_blank">code on GitHub</a>'
     );
 
-    
+
   </script>
 </body>
 
