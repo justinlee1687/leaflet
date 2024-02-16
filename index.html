@@ -217,7 +217,7 @@
           var independent = L.marker([row.Latitude, row.Longitude], {
             opacity: 1,
             icon: privatestoreicon
-          }).bindPopup(row.StoreName + '</br> Address: ' + row.Address + '</br> ShopType: ' + row.shoptype + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho);
+          }).bindPopup('<stong>' + row.StoreName + '</strong></br> <strong> Address: </strong> ' + row.Address + '</br> <strong> ShopType: </strong> ' + row.shoptype + '</br> <strong> Phone: </strong> ' + String(row.phone) + '</br> <strong> Opening Hours: </strong> ' + row.opening_ho);
           independentlist.push(independent);
         } else if (row.shoptype == "Supermarkets and traditional formats") {
           var supermarket = L.marker([row.Latitude, row.Longitude], {
