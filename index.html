@@ -177,15 +177,27 @@
 
       function styling(feature) {
         if (feature.properties.FromBreak > 14) {
-          return { color: "#E60000","fillOpacity": .75 }
+          return { color: "#E60000", "fillOpacity": .75 }
         } else if (feature.properties.FromBreak > 9) {
-          return { color: "#F57A00","fillOpacity": .75  }
+          return { color: "#F57A00", "fillOpacity": .75 }
         } else if (feature.properties.FromBreak > 4) {
-          return { color: "#F5B800","fillOpacity": .75  }
+          return { color: "#F5B800", "fillOpacity": .75 }
         } else if (feature.properties.FromBreak == 0) {
-          return { color: "#F5F500","fillOpacity": .75  }
+          return { color: "#F5F500", "fillOpacity": .75 }
         }
       }
+
+      legend.onAdd = function (map) {
+        var div = L.DomUtil.create("div", "legend");
+        div.innerHTML += "<h4>Distance to Grocery Store</h4>";
+        div.innerHTML += '<i style="background: #F5F500"></i><span>0-5 minutes</span><br>';
+        div.innerHTML += '<i style="background: #F5B800"></i><span>5-10 minutes</span><br>';
+        div.innerHTML += '<i style="background: #F57A00"></i><span>10-15 minutes</span><br>';
+        div.innerHTML += '<i style="background: #E60000"></i><span>15-20 minutes</span><br>';
+        return div;
+      };
+
+      legend.addTo(map);
     });
 
     map.attributionControl.setPrefix(
