@@ -96,6 +96,17 @@
       tap: false
     });
 
+    let textbox   = L.Control.extend({
+        onAdd: function() {
+            
+        var text = L.DomUtil.create('div');
+        text.id = "info_text";
+        text.innerHTML = "<h2>" + "Distance to Food Access in Ottawa - Group 10" + "</h2>"
+        return text;
+        },  
+
+    });
+    new textbox({ position: 'topleft' }).addTo(map);
 
     /* Control panel to display map layers */
     var controlLayers = L.control.layers(null, null, {
@@ -287,17 +298,6 @@
 
       legend.addTo(map);
 
-      let textbox   = L.Control.extend({
-        onAdd: function() {
-            
-        var text = L.DomUtil.create('div');
-        text.id = "info_text";
-        text.innerHTML = "<h2>" + "Distance to Food Access in Ottawa - Group 10" + "</h2>"
-        return text;
-        },  
-
-    });
-    new textbox({ position: 'topleft' }).addTo(map);
     });
 
     map.attributionControl.setPrefix(
