@@ -131,8 +131,9 @@
           otherslist.push(others);
         }
       }
+      var conveniencestoreslistfinal = L.layerGroup(conveniencestoreslist)
       //show as overlay
-      controlLayers.addOverlay(L.layerGroup(conveniencestoreslist), "convenience stores");
+      controlLayers.addOverlay(conveniencestoreslistfinal, "convenience stores");
       controlLayers.addOverlay(L.layerGroup(drugstorelist), "drugstorelist");
       controlLayers.addOverlay(L.layerGroup(clubstorelist), "clubstorelist");
       controlLayers.addOverlay(L.layerGroup(independentlist), "independent stores");
@@ -140,7 +141,12 @@
       controlLayers.addOverlay(L.layerGroup(otherslist), "others stores");
    
       //actual show on map
-      (L.layerGroup(conveniencestoreslist)).addTo(map);
+      map.addLayer(conveniencestoreslistfinal));
+      map.addLayer(L.layerGroup(drugstorelist));
+      map.addLayer(clubstorelist);
+      map.addLayer(independentlist);
+      map.addLayer(supermarketlist);
+      map.addLayer(otherslist);
 
     });
 
