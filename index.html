@@ -44,7 +44,6 @@
   var cities = L.layerGroup([littleton, denver, aurora, golden]);
 
   var overlayMaps = {
-    "Cities": cities
   };
 
   /* Control panel to display map layers */
@@ -117,7 +116,7 @@
       clubstorelist.push(clubstores);
 
       if (row.shoptype == "Independent and specialty stores") {
-        var independentlist = L.marker([row.Latitude, row.Longitude], {
+        var independent = L.marker([row.Latitude, row.Longitude], {
         opacity: 1
       }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
       }
@@ -125,7 +124,7 @@
       independentlist.push(independent);
 
       if (row.shoptype == "Supermarkets and traditional formats") {
-        var supermarketlist = L.marker([row.Latitude, row.Longitude], {
+        var supermarket = L.marker([row.Latitude, row.Longitude], {
         opacity: 1
       }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
       }
@@ -133,7 +132,7 @@
       supermarketlist.push(supermarket);
 
       if (row.shoptype == "Others") {
-        var otherslist = L.marker([row.Latitude, row.Longitude], {
+        var others = L.marker([row.Latitude, row.Longitude], {
         opacity: 1
       }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
       }
