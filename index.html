@@ -187,13 +187,13 @@
 
       function styling(feature) {
         if (feature.properties.FromBreak > 14) {
-          return { color: "red" }
+          return { color: "E60000","fillOpacity": .75 }
         } else if (feature.properties.FromBreak > 9) {
-          return { color: "blue" }
+          return { color: "F57A00","fillOpacity": .75  }
         } else if (feature.properties.FromBreak > 4) {
-          return { color: "purple" }
+          return { color: "F5B800","fillOpacity": .75  }
         } else if (feature.properties.FromBreak == 0) {
-          return { color: "white" }
+          return { color: "F5F500","fillOpacity": .75  }
         }
       }
     });
