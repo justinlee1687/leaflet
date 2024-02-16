@@ -79,11 +79,12 @@
         apikey: apiKey
       }).addTo(map);
 
-    const earthquakes = L.esri
+    const heatmap = L.esri
       .featureLayer({
         url: "https://services1.arcgis.com/DwLTn0u9VBSZvUPe/arcgis/rest/services/Servicewalk/FeatureServer/0"
       })
       .addTo(map);
+      controlLayers.addBaseLayer(heatmap, 'esri');
 
     // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
 
