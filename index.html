@@ -171,27 +171,31 @@
       controlLayers.addOverlay(otherslistfinal, "others stores");
 
       //actual show on map
-      map.addLayer(conveniencestoreslistfinal);
-      map.addLayer(drugstorelistfinal);
+      //map.addLayer(conveniencestoreslistfinal);
+      //map.addLayer(drugstorelistfinal);
       map.addLayer(clubstorelistfinal);
       map.addLayer(independentlistfinal);
       map.addLayer(supermarketlistfinal);
-      map.addLayer(otherslistfinal);
+      //map.addLayer(otherslistfinal);
 
       fetch("data.geojson").then(res => res.json()).then(data => {
         // add GeoJSON layer to the map once the file is loaded
         L.geoJson(data, {
-    style: function(feature) {
-        switch (feature.properties.FromBreak) {
-            case '0': return {color: "#ff0000"};
-            case '5':   return {color: "#0000ff"};
-            case '10': return {color: "#ffff00"};
-            case '20':   return {color: "#f000ff"};
-        }
-    }
-}).addTo(map);
+          style: styling
+        }).addTo(map);
       });
 
+      function styling(feature) {
+        if (feature.properties.FromBreak > 14) {
+          return { color: "red" }
+        } else if (feature.properties.FromBreak > 9) {
+          return { color: "blue" }
+        } else if (feature.properties.FromBreak > 4) {
+          return { color: "purple" }
+        } else if (feature.properties.FromBreak == 0) {
+          return { color: "white" }
+        }
+      }
     });
 
     map.attributionControl.setPrefix(
