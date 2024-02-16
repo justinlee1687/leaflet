@@ -90,7 +90,7 @@
     // Set up initial map center and zoom level
     var map = L.map('map', {
       center: [45.34832719159016, -75.78607684724913], // EDIT latitude, longitude to re-center map
-      zoom: 10,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+      zoom: 12,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
       scrollWheelZoom: true,
       tap: false
     });
@@ -100,7 +100,7 @@
     var controlLayers = L.control.layers(null, null, {
       position: "topright",
       collapsed: false,
-      title: "Store Types:"
+      //title: "Store Types:"
     }).addTo(map);
 
     // display Carto basemap tiles with light features and labels
