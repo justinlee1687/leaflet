@@ -197,14 +197,14 @@
       controlLayers.addOverlay(otherslistfinal, "others stores");
 
       //actual show on map
-      //map.addLayer(conveniencestoreslistfinal);
-      //map.addLayer(drugstorelistfinal);
+      map.addLayer(conveniencestoreslistfinal);
+      map.addLayer(drugstorelistfinal);
       map.addLayer(clubstorelistfinal);
       map.addLayer(independentlistfinal);
       map.addLayer(supermarketlistfinal);
-      //map.addLayer(otherslistfinal);
+      map.addLayer(otherslistfinal);
 
-      fetch("data2.geojson").then(res => res.json()).then(data => {
+      fetch("data.geojson").then(res => res.json()).then(data => {
         // add GeoJSON layer to the map once the file is loaded
         L.geoJson(data, {
           style: styling
