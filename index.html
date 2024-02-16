@@ -73,7 +73,10 @@
     }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
     // controlLayers.addBaseLayer(light, 'Carto Light basemap');
 
-
+    var esri = L.esri.featureLayer({
+           url: "https://services1.arcgis.com/DwLTn0u9VBSZvUPe/arcgis/rest/services/Servicewalk/FeatureServer/0"
+         }).addTo(map);
+         
     // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
 
     var drugstorelist = []
@@ -161,9 +164,6 @@
       'View <a href="https://github.com/HandsOnDataViz/leaflet-map-csv" target="_blank">code on GitHub</a>'
     );
 
-    var esri = L.esri.featureLayer({
-           url: "https://services1.arcgis.com/DwLTn0u9VBSZvUPe/arcgis/rest/services/Servicewalk/FeatureServer/0"
-         }).addTo(map);
   </script>
 </body>
 
