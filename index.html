@@ -208,7 +208,7 @@ var otherstoreicon = L.icon({
         } else if (row.shoptype == "Mass merchandisers / club stores") {
           var clubstores = L.marker([row.Latitude, row.Longitude], {
             opacity: 1,
-            icon: constoreicon
+            icon: wholesalestoreicon
           }).bindPopup(row.StoreName + '</br> Address: ' + row.Address + '</br> ShopType: ' + row.shoptype + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho);
           clubstorelist.push(clubstores);
         } else if (row.shoptype == "Independent and specialty stores") {
@@ -238,7 +238,7 @@ var otherstoreicon = L.icon({
       var supermarketlistfinal = L.layerGroup(supermarketlist)
       var otherslistfinal = L.layerGroup(otherslist)
       //show as overlay
-      controlLayers.addOverlay(conveniencestoreslistfinal, "convenience stores");
+      controlLayers.addOverlay(conveniencestoreslistfinal, "<img src='constore.svg' width = 15 /> <span>convenience stores</span>");
       controlLayers.addOverlay(drugstorelistfinal, "drugstorelist");
       controlLayers.addOverlay(clubstorelistfinal, "clubstorelist");
       controlLayers.addOverlay(independentlistfinal, "independent stores");
