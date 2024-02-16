@@ -140,12 +140,12 @@
       controlLayers.addOverlay(L.layerGroup(otherslist), "others stores");
    
       //actual show on map
-      conveniencestoreslist.addTo(map);
-      drugstorelist.addTo(map);
-      clubstorelist.addTo(map);
-      independentlist.addTo(map);
-      supermarketlist.addTo(map);
-      otherslist.addTo(map);
+      map.addLayer(conveniencestoreslist);
+      map.addLayer(drugstorelist);
+      map.addLayer(clubstorelist);
+      map.addLayer(independentlist);
+      map.addLayer(supermarketlist);
+      map.addLayer(otherslist);
 
     });
 
