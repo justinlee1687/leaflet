@@ -98,7 +98,7 @@
 
     }
 
-    controlLayers.addOverlay(conveniencestoreslist, "convenience stores");
+    controlLayers.addOverlay(L.layerGroup(conveniencestoreslist), "convenience stores");
   });
   
   map.attributionControl.setPrefix(
