@@ -132,21 +132,26 @@
         }
       }
       var conveniencestoreslistfinal = L.layerGroup(conveniencestoreslist)
+      var drugstorelistfinal = L.layerGroup(drugstorelist)
+      var clubstorelistfinal = L.layerGroup(clubstorelist)
+      var independentlistfinal = L.layerGroup(independentlist)
+      var supermarketlistfinal = L.layerGroup(supermarketlist)
+      var otherslistfinal = L.layerGroup(otherslist)
       //show as overlay
       controlLayers.addOverlay(conveniencestoreslistfinal, "convenience stores");
-      controlLayers.addOverlay(L.layerGroup(drugstorelist), "drugstorelist");
-      controlLayers.addOverlay(L.layerGroup(clubstorelist), "clubstorelist");
-      controlLayers.addOverlay(L.layerGroup(independentlist), "independent stores");
-      controlLayers.addOverlay(L.layerGroup(supermarketlist), "supermarket stores");
-      controlLayers.addOverlay(L.layerGroup(otherslist), "others stores");
+      controlLayers.addOverlay(drugstorelistfinal, "drugstorelist");
+      controlLayers.addOverlay(clubstorelistfinal, "clubstorelist");
+      controlLayers.addOverlay(independentlistfinal, "independent stores");
+      controlLayers.addOverlay(supermarketlistfinal, "supermarket stores");
+      controlLayers.addOverlay(otherslistfinal, "others stores");
    
       //actual show on map
       map.addLayer(conveniencestoreslistfinal);
-      map.addLayer(L.layerGroup(drugstorelist));
-      map.addLayer(clubstorelist);
-      map.addLayer(independentlist);
-      map.addLayer(supermarketlist);
-      map.addLayer(otherslist);
+      map.addLayer(drugstorelistfinal);
+      map.addLayer(clubstorelistfinal);
+      map.addLayer(independentlistfinal);
+      map.addLayer(supermarketlistfinal);
+      map.addLayer(otherslistfinal);
 
     });
 
