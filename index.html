@@ -180,7 +180,16 @@
 
       fetch("data.geojson").then(res => res.json()).then(data => {
         // add GeoJSON layer to the map once the file is loaded
-        L.geoJson(data).addTo(map);
+        L.geoJson(data, {
+    style: function(feature) {
+        switch (feature.properties.FromBreak) {
+            case '0': return {color: "#ff0000"};
+            case '5':   return {color: "#0000ff"};
+            case '10': return {color: "#ffff00"};
+            case '20':   return {color: "#f000ff"};
+        }
+    }
+}).addTo(map);
       });
 
     });
