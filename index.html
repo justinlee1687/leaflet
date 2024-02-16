@@ -25,9 +25,6 @@
   <!-- This will hook into Esri Leaflet to get renderer info when adding a feature layer -->
   <script src="https://unpkg.com/esri-leaflet-renderers@3"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
-  <div id="root"></div>
 
   <!-- Position the map with Cascading Style Sheet (CSS) -->
   <style>
@@ -79,24 +76,6 @@
       background-size: 18px;
       background-color: rgba(255, 255, 255, 1);
     }
-
-    .app {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-
-    .map {
-      height: 200px;
-      width: 100%;
-      background: rgb(209, 209, 209);
-    }
-
-    .map-title {
-      position: absolute;
-      background: white;
-      bottom: 20px;
-    }
   </style>
 
 </head>
@@ -111,7 +90,7 @@
 
     // Set up initial map center and zoom level
     var map = L.map('map', {
-      center: [45.34832719159016, -75.78607684724913], // EDIT latitude, longitude to re-center map
+      center: [45.41712649528622, -75.6947615027121], // EDIT latitude, longitude to re-center map
       zoom: 12,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
       scrollWheelZoom: true,
       tap: false
@@ -315,17 +294,7 @@
       'View <a href="https://github.com/HandsOnDataViz/leaflet-map-csv" target="_blank">code on GitHub</a>'
     );
 
-    function App() {
-      return (
-        <div className="app">
-          <div className="map" />
-          <h1 className="map-title">Distance to Grocery Store - Group 10</h1>
-        </div>
-      );
-    }
 
-    const rootElement = document.getElementById("root");
-    ReactDOM.render(<App />, rootElement);
 
   </script>
 </body>
