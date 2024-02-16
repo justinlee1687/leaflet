@@ -135,7 +135,37 @@
     var drugstoreicon = L.icon({
     iconUrl: 'drugstore.svg',
 
-    iconSize:     [30, 30], // size of the icon
+    iconSize:     [15, 15], // size of the icon
+    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
+});
+var constoreicon = L.icon({
+    iconUrl: 'constore.svg',
+
+    iconSize:     [15, 15], // size of the icon
+    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
+});
+var grocerystoreicon = L.icon({
+    iconUrl: 'grocerystore.svg',
+
+    iconSize:     [15, 15], // size of the icon
+    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
+});
+var wholesalestoreicon = L.icon({
+    iconUrl: 'wholesalestore.svg',
+
+    iconSize:     [15, 15], // size of the icon
+    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
+});
+var privatestoreicon = L.icon({
+    iconUrl: 'privatestore.svg',
+
+    iconSize:     [15, 15], // size of the icon
+    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
+});
+var otherstoreicon = L.icon({
+    iconUrl: 'otherstore.svg',
+
+    iconSize:     [15, 15], // size of the icon
     iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
 });
 
@@ -160,32 +190,37 @@
         if (row.shoptype == "Convenience stores and gas stations") {
           var conveniencestores = L.marker([row.Latitude, row.Longitude], {
             opacity: 1,
-            icon: drugstoreicon
+            icon: constoreicon
           }).bindPopup(row.StoreName + '</br> Address: ' + row.Address + '</br> ShopType: ' + row.shoptype + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho);
           conveniencestoreslist.push(conveniencestores);
         } else if (row.shoptype == "Drugstores") {
           var drugstores = L.marker([row.Latitude, row.Longitude], {
-            opacity: 1
+            opacity: 1,
+            icon: drugstoreicon
           }).bindPopup(row.StoreName + '</br> Address: ' + row.Address + '</br> ShopType: ' + row.shoptype + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho);
           drugstorelist.push(drugstores);
         } else if (row.shoptype == "Mass merchandisers / club stores") {
           var clubstores = L.marker([row.Latitude, row.Longitude], {
-            opacity: 1
+            opacity: 1,
+            icon: constoreicon
           }).bindPopup(row.StoreName + '</br> Address: ' + row.Address + '</br> ShopType: ' + row.shoptype + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho);
           clubstorelist.push(clubstores);
         } else if (row.shoptype == "Independent and specialty stores") {
           var independent = L.marker([row.Latitude, row.Longitude], {
-            opacity: 1
+            opacity: 1,
+            icon: privatestoreicon
           }).bindPopup(row.StoreName + '</br> Address: ' + row.Address + '</br> ShopType: ' + row.shoptype + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho);
           independentlist.push(independent);
         } else if (row.shoptype == "Supermarkets and traditional formats") {
           var supermarket = L.marker([row.Latitude, row.Longitude], {
-            opacity: 1
+            opacity: 1,
+            icon: grocerystoreicon
           }).bindPopup(row.StoreName + '</br> Address: ' + row.Address + '</br> ShopType: ' + row.shoptype + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho);
           supermarketlist.push(supermarket);
         } else if (row.shoptype == "Other") {
           var others = L.marker([row.Latitude, row.Longitude], {
-            opacity: 1
+            opacity: 1,
+            icon: otherstoreicon
           }).bindPopup(row.StoreName + '</br> Address: ' + row.Address + '</br> ShopType: ' + row.shoptype + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho);
           otherslist.push(others);
         }
