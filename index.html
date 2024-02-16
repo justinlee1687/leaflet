@@ -67,7 +67,13 @@
 
   // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
 
+  var drugstorelist = [] 
   var conveniencestoreslist = []
+  var clubstorelist = []
+  var independent = []
+  var supermarket = []
+  var others = []
+  
 
   // Read markers data from data.csv
   $.get('./data.csv', function(csvString) {
@@ -94,11 +100,56 @@
 
       conveniencestoreslist.push(conveniencestores);
 
+      if (row.shoptype == "Drugstores") {
+        var conveniencestores = L.marker([row.Latitude, row.Longitude], {
+        opacity: 1
+      }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
+      }
+
+      conveniencestoreslist.push(drugstorelist);
+
+      if (row.shoptype == "Mass merchandisers / club stores") {
+        var conveniencestores = L.marker([row.Latitude, row.Longitude], {
+        opacity: 1
+      }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
+      }
+
+      conveniencestoreslist.push(clubstorelist);
+
+      if (row.shoptype == "Independent and specialty stores") {
+        var conveniencestores = L.marker([row.Latitude, row.Longitude], {
+        opacity: 1
+      }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
+      }
+
+      conveniencestoreslist.push(independent);
+
+      if (row.shoptype == "Supermarkets and traditional formats") {
+        var conveniencestores = L.marker([row.Latitude, row.Longitude], {
+        opacity: 1
+      }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
+      }
+
+      conveniencestoreslist.push(supermarket);
+
+      if (row.shoptype == "Others") {
+        var conveniencestores = L.marker([row.Latitude, row.Longitude], {
+        opacity: 1
+      }).bindPopup(row.StoreName + '</br> Address: ' + row.Address  + '</br> ShopType: ' + row.shoptype  + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho );
+      }
+
+      conveniencestoreslist.push(others);
 
 
     }
 
+    controlLayers.addOverlay(L.layerGroup(drugstorelist), "drugstorelist");
     controlLayers.addOverlay(L.layerGroup(conveniencestoreslist), "convenience stores");
+    controlLayers.addOverlay(L.layerGroup(clubstorelist), "clubstorelist");
+    controlLayers.addOverlay(L.layerGroup(independent), "independent stores");
+    controlLayers.addOverlay(L.layerGroup(supermarket), "supermarket stores");
+    controlLayers.addOverlay(L.layerGroup(others), "others stores");
+
   });
   
   map.attributionControl.setPrefix(
