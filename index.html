@@ -41,6 +41,24 @@
       left: 0;
     }
 
+    .maptitle {
+      padding: 6px 8px;
+      font: 18px Arial, Helvetica, sans-serif;
+      background: white;
+      background: rgba(255, 255, 255, 0.8);
+      /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
+      /*border-radius: 5px;*/
+      line-height: 24px;
+      color: #555;
+    }
+
+    .maptitle h4{
+      text-align: center;
+      font-size: 18px;
+      margin: 2px 12px 8px;
+      color: #000;
+    }
+
     .legend {
       padding: 6px 8px;
       font: 14px Arial, Helvetica, sans-serif;
@@ -97,17 +115,16 @@
       zoomControl: false
     });
 
-    let textbox = L.Control.extend({
-      onAdd: function () {
+  var maptitle = L.control({ position: "topleft" });
 
-        var text = L.DomUtil.create('div');
-        text.id = "info_text";
-        text.innerHTML = "<h1>" + "Distance to Food Access in Ottawa - Group 10" + "</h1>"
-        return text;
-      },
+  maptitle.onAdd = function (map) {
+        var div = L.DomUtil.create("div", "maptitle");
+        div.innerHTML += "<h4>Distance to Food Access in Ottawa - Group 10</h4>";
+        return div;
+      };
 
-    });
-    new textbox({ position: 'topleft' }).addTo(map);
+      maptitle.addTo(map);
+
 
     L.control.zoom({
       position: 'bottomright'
