@@ -74,9 +74,15 @@
     // controlLayers.addBaseLayer(light, 'Carto Light basemap');
 
     const apiKey = "AAPK95f0bc344de14945b18b5e0de5d6ad3bG2YtG5mSUOtSZhrI9fyQOFBFCxjQXLvtsiQDmlyCCRStmsc4IPXcOjre7Lf7n3GV";
-    var esri = L.esri.featureLayer({
-           url: "https://services1.arcgis.com/DwLTn0u9VBSZvUPe/arcgis/rest/services/Servicewalk/FeatureServer/0"
-         }).addTo(map);
+    L.esri.Vector.vectorBasemapLayer("arcgis/modern-antique", {
+        apikey: apiKey
+      }).addTo(map);
+
+      const earthquakes = L.esri
+        .featureLayer({
+          url: "https://services1.arcgis.com/DwLTn0u9VBSZvUPe/arcgis/rest/services/Servicewalk/FeatureServer/0"
+        })
+        .addTo(map);
 
     // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
 
