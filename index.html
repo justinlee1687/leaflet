@@ -186,7 +186,8 @@
           return { color: "#F5F500", "fillOpacity": .75 }
         }
       }
-
+      var legend = L.control({ position: "bottomleft" });
+      
       legend.onAdd = function (map) {
         var div = L.DomUtil.create("div", "legend");
         div.innerHTML += "<h4>Distance to Grocery Store</h4>";
