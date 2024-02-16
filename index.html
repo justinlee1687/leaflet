@@ -132,6 +132,13 @@
     var supermarketlist = []
     var otherslist = []
 
+    var drugstoreicon = L.icon({
+    iconUrl: 'drugstore.svg',
+
+    iconSize:     [30, 30], // size of the icon
+    iconAnchor:   [0,0], // point of the icon which will correspond to marker's location
+});
+
 
     // Read markers data from data.csv
     $.get('./data.csv', function (csvString) {
@@ -152,7 +159,8 @@
 
         if (row.shoptype == "Convenience stores and gas stations") {
           var conveniencestores = L.marker([row.Latitude, row.Longitude], {
-            opacity: 1
+            opacity: 1,
+            icon: drugstoreicon
           }).bindPopup(row.StoreName + '</br> Address: ' + row.Address + '</br> ShopType: ' + row.shoptype + '</br> Phone: ' + String(row.phone) + '</br> Opening Hours: ' + row.opening_ho);
           conveniencestoreslist.push(conveniencestores);
         } else if (row.shoptype == "Drugstores") {
